@@ -8,6 +8,7 @@
 
 #include <mutex>
 #include "Block.h"
+#include <vector>
 
 class BlockProtected {
 private:

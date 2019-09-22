@@ -7,6 +7,7 @@
 
 
 #include <mutex>
+#include <vector>
 #include "File.h"
 #include "Thread.h"
 #include "FileProtected.h"

@@ -6,12 +6,9 @@
 #include <iomanip>
 #include <queue>
 #include <condition_variable>
-#include <atomic>
 #include "Vector.h"
-#include "Binary.h"
-#include "Block.h"
-#include "File.h"
 #include "Controller.h"
+#include <vector>
 
 #include "Thread.h"
 #include "FileProtected.h"
@@ -28,7 +25,7 @@ int main(){
     clock_t start, end;
     int N=8;
     int amountOfThreads = 2;
-    std::thread threads[amountOfThreads];
+    std::thread threads[2];
     Controller controller(&file, N);
 
     start = clock();

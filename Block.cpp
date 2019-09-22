@@ -5,12 +5,11 @@
 #include <iostream>
 #include <vector>
 #include <bitset>
-#include <cstring>
+#include <string>
 #include "Block.h"
 
 #define BYTE_SIZE 8
 
-using namespace std;
 
 Block::Block(int N) {
     this->vector = new Vector(N);
@@ -42,11 +41,11 @@ int Block::getContentInBuffer(char* sendingBuffer) {
     std::string min = this->vector->getMinimumAsString();
     std::string length = this->vector->getMaxNumberLengthAsString();
 
-    char auxiliarBuffer[300];
-    memset(auxiliarBuffer, '\0', sizeof(auxiliarBuffer));
+    char auxiliarBuffer[300] = "";
 
     this->vector->putNumbersTogetherAsString(auxiliarBuffer);
-    int lengthCounter = this->buildBuffer(sendingBuffer, auxiliarBuffer, min, length);
+    int lengthCounter = this->buildBuffer(sendingBuffer,
+            auxiliarBuffer, min, length);
 
     return lengthCounter;
 }
@@ -74,7 +73,8 @@ int Block::buildBuffer(char *sendingBuffer, char *auxiliarBuffer,
         lengthCounter++;
     }
 
-    int totalAuxiliarBufferBits = this->vector->addPaddingIfNecesary(auxiliarBuffer);
+    int totalAuxiliarBufferBits = this->vector->
+            addPaddingIfNecesary(auxiliarBuffer);
     std::cout << "AuxiliarBuffer : "<< auxiliarBuffer << std::endl;
 
     for (int i=0; i< totalAuxiliarBufferBits; i++){

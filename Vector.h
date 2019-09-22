@@ -12,11 +12,12 @@
 class Vector {
 private:
     std::vector<uint32_t> *numbers;
-    int N ;
+    int N;
     uint32_t minimum;
     int maxNumbersLengthInBits;
+
 public:
-    Vector(int N);
+    explicit Vector(int N);
 
     void saveNumbers(std::vector<uint32_t> *anotherVector);
 
@@ -33,6 +34,8 @@ public:
     std::string getMinimumAsString();
 
     std::string getMaxNumberLengthAsString();
+
+    uint8_t getBinaryLength(uint32_t number);
 
     void putNumbersTogetherAsString(char *auxiliarBuffer);
 

@@ -3,6 +3,8 @@
 //
 
 #include "BlockProtected.h"
+#include <string>
+#include <vector>
 
 
 BlockProtected::BlockProtected(int N, std::vector<uint32_t> *anotherVector) {

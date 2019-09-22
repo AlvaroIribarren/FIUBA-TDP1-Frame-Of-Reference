@@ -19,7 +19,6 @@ private:
     std::mutex mutex;
     std::condition_variable condVar;
 public:
-
     SafeQueue();
     void push(T item);
 

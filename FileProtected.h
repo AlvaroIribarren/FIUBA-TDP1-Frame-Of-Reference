@@ -8,6 +8,8 @@
 
 #include <mutex>
 #include "File.h"
+#include <string>
+#include <vector>
 
 class FileProtected {
 private:
@@ -15,12 +17,14 @@ private:
     std::mutex m;
 public:
     FileProtected(std::string openingFile, std::string outputStream);
+
     int readNumbers(std::vector<uint32_t>* vector, int N);
+
     void writeFile(Block *block);
+
     bool eof();
+
     ~FileProtected();
-
-
 };
 
 

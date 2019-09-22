@@ -3,9 +3,13 @@
 //
 
 #include "FileProtected.h"
+#include <vector>
+#include <string>
 
-FileProtected::FileProtected(std::string openingFile, std::string outputStream) {
-    this->file = new File(openingFile, outputStream);
+FileProtected::FileProtected(std::string openingFile,
+        std::string outputStream) {
+    this->file = new File(std::move(openingFile)
+            , std::move(outputStream));
 }
 
 int FileProtected::readNumbers(std::vector<uint32_t> *vector, int N) {

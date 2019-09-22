@@ -4,10 +4,11 @@
 
 #include "File.h"
 #include "Block.h"
-#include "Binary.h"
 #include<iostream>
 #include <netinet/in.h>
 #include <bitset>
+#include <vector>
+#include <string>
 
 #define BYTE_SIZE 8
 #define BUFFER_SIZE 200
@@ -19,11 +20,11 @@ File::File(std::string openingFile, std::string outputStream) {
 }
 void File::openFile(std::string openingFile){
     std::ifstream binary;
-    binary.open (openingFile, std::ios::in | std::ios::binary);
+    binary.open(openingFile, std::ios::in | std::ios::binary);
     this->readingFile = dynamic_cast<std::basic_ifstream<char> &&>(binary);
     this->readingFile.seekg(0);
 
-    if(!readingFile) {
+    if (!readingFile) {
         std::cout << "Cannot open readingFile!" << std::endl;
     }
 }
@@ -35,7 +36,7 @@ int File::readNumbersFromFile(std::vector<uint32_t>* vector, int N) {
 
         while (!this->readingFile.eof() && i<N){
             this->readingFile.read(reinterpret_cast<char *>(&val), sizeof(val));
-            if(!this->readingFile.eof()){
+            if (!this->readingFile.eof()){
                 val = ntohl(val);
                 vector->at(i) = val;
                 i++;
@@ -47,11 +48,12 @@ int File::readNumbersFromFile(std::vector<uint32_t>* vector, int N) {
 }
 
 void File::openOutputStream(std::string outputStream){
-    std::ofstream myFile (outputStream, std::ios::out | std::ios::binary);
+    std::ofstream myFile(outputStream, std::ios::out | std::ios::binary);
     this->outputFile = dynamic_cast<std::basic_ofstream<char> &&>(myFile);
 }
 
-static void getActualByte(char *sendingBuffer, char *actualByte, int& bufferPosition){
+static void getActualByte(char *sendingBuffer,
+        char *actualByte, int& bufferPosition){
     for (int j = 0; j < BYTE_SIZE; j++) {
         actualByte[j] = sendingBuffer[bufferPosition];
         bufferPosition++;

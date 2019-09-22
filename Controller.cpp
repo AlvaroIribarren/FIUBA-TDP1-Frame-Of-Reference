@@ -5,6 +5,7 @@
 #include <iostream>
 #include "Controller.h"
 #include "SafeQueue.h"
+#include <vector>
 
 
 Controller::Controller(FileProtected *file, int N) {
@@ -16,7 +17,7 @@ Controller::Controller(FileProtected *file, int N) {
 
 int Controller::readingProcess(){
     std::unique_lock<std::mutex> locker(this->m);
-    for(int i=0; i < N; i++) {
+    for (int i=0; i < N; i++) {
         this->numbersFromFile->at(i) = 0;
     }
 

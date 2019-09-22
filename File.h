@@ -7,6 +7,8 @@
 
 #include <fstream>
 #include "Block.h"
+#include <string>
+#include <vector>
 
 class File {
 private:

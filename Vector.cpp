@@ -5,12 +5,14 @@
 #include <iostream>
 #include <sstream>
 #include <cstring>
+#include <string>
+#include <vector>
 #include "Vector.h"
-#include "Binary.h"
 #include <bits/stdc++.h>
 
 #define BYTE_SIZE 8
-#define FOUR_BYTES_SIZE BYTE_SIZE*4
+#define FOUR_BYTES_SIZE (4*BYTE_SIZE)
+#define BUFFER_SIZE 200
 
 
 Vector::Vector(int N) {
@@ -33,7 +35,7 @@ void Vector::printContent() {
 uint32_t Vector::findMaximum() {
     uint32_t max = 0;
     for (auto i: *numbers) {
-        if (i > max ) {
+        if (i > max) {
             max = i;
         }
     }
@@ -53,25 +55,37 @@ uint32_t Vector::findMinimum() {
     return min;
 }
 
+uint8_t Vector::getBinaryLength(uint32_t number){
+    int n1[32];
+    int i=0;
+    for (i=0; number>0; i++){
+        n1[i]=number%2;
+        number= number/2;
+    }
+    uint8_t binaryLength = i;
+    return binaryLength;
+}
+
 
 
 void Vector::substractMinimum() {
     this->minimum = this->findMinimum();
-    for(int i=0; i < N; i++){
+    for (int i=0; i < N; i++){
         if (this->numbers->at(i))
             this->numbers->at(i) -= this->minimum;
     }
-    this->maxNumbersLengthInBits = getBinaryLength(this->findMaximum());
+    this->maxNumbersLengthInBits = this->getBinaryLength(this->findMaximum());
 }
 
 int Vector::addPaddingIfNecesary(char* auxiliarBuffer) {
     int totalBits = N * maxNumbersLengthInBits;
     bool aligned = (totalBits % BYTE_SIZE == 0);
 
-    while(!aligned){
+    while (!aligned){
         auxiliarBuffer[totalBits] = '0';
         totalBits++;
-        std::cout << "Trying to align, actual value: " << totalBits << std::endl;
+        std::cout << "Trying to align, actual value: " <<
+        totalBits << std::endl;
         aligned = (totalBits % BYTE_SIZE == 0);
     }
 
@@ -83,7 +97,7 @@ void Vector::putNumbersTogetherAsString(char *auxiliarBuffer) {
     int actualPosition = 0;
     std::string actualString = "";
 
-    char actualStringChar[N * maxNumbersLengthInBits];
+    char actualStringChar[BUFFER_SIZE] = "";
     for (int i = 0; i < this->N; i++) {
         memset(actualStringChar, '\0', sizeof(actualStringChar));
         uint32_t num = this->numbers->at(i);
@@ -111,7 +125,8 @@ std::string Vector::getMinimumAsString() {
 }
 
 std::string Vector::getMaxNumberLengthAsString() {
-    std::string length = std::bitset<BYTE_SIZE>(this->maxNumbersLengthInBits).to_string();
+    std::string length = std::bitset<BYTE_SIZE>
+            (this->maxNumbersLengthInBits).to_string();
     return length;
 }
 

@@ -13,7 +13,7 @@ private:
     std::thread thread;
 
 public:
-    Thread () {}
+    Thread(){}
 
     void start() {
         thread = std::thread(&Thread::run, this);
