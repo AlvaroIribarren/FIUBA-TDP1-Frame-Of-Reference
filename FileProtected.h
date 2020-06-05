@@ -13,17 +13,30 @@
 
 class FileProtected {
 private:
-    File* file;
+    File file;
     std::mutex m;
+
 public:
-    FileProtected(std::string openingFile, std::string outputStream);
+    //Inicializa el atributo file con los strings correspondientes.
+    FileProtected(const std::string &openingFile,
+                  const std::string &outputStream);
 
-    int readNumbers(std::vector<uint32_t>* vector, int N);
+    //Devuelve en el vector los numeros leidos. Usa el parametro seekGParameter
+    //para determinar de qué linea empezar a leer y el N para saber cuantos
+    //debe leer.
+    int readNumbers(std::vector<uint32_t> &vector,
+                    int N, int seekGParameter);
 
-    void writeFile(Block *block);
+    //Escribe el string en el file.
+    void writeFile(std::string &bufferToWrite);
 
+    //Obtiene la longitud del archivo.
+    int getReadingFileLength();
+
+    //True si el file llego al final.
     bool eof();
 
+    //Destructor vacio, atributos en el stack.
     ~FileProtected();
 };
 

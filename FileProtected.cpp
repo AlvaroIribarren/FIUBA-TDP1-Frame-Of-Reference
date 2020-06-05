@@ -6,29 +6,35 @@
 #include <vector>
 #include <string>
 
-FileProtected::FileProtected(std::string openingFile,
-        std::string outputStream) {
-    this->file = new File(std::move(openingFile)
-            , std::move(outputStream));
+FileProtected::FileProtected(const std::string& openingFile,
+        const std::string& outputStream):
+        file(openingFile, outputStream){
 }
 
-int FileProtected::readNumbers(std::vector<uint32_t> *vector, int N) {
+int FileProtected::readNumbers(std::vector<uint32_t>& vector,
+        int N, int seekGParameter) {
     std::unique_lock<std::mutex> locker(this->m);
-    int amountOfNumbersRead = this->file->readNumbersFromFile(vector, N);
+    int amountOfNumbersRead =
+            this->file.readNumbersFromFile(vector, N, seekGParameter);
     return amountOfNumbersRead;
 }
 
-void FileProtected::writeFile(Block *block) {
+void FileProtected::writeFile(std::string& bufferToWrite) {
     std::unique_lock<std::mutex> locker(this->m);
-    this->file->writeBlockToFile(block);
+    this->file.writeBlockToFile(bufferToWrite);
+}
+
+int FileProtected::getReadingFileLength() {
+    std::unique_lock<std::mutex> locker(this->m);
+    return this->file.getReadingFileLength();
 }
 
 bool FileProtected::eof() {
     std::unique_lock<std::mutex> locker(this->m);
-    bool end = this->file->eof();
+    bool end = this->file.eof();
     return end;
 }
 
 FileProtected::~FileProtected() {
-    delete(this->file);
 }
+

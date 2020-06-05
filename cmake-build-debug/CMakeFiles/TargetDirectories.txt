@@ -1,0 +1,3 @@
+/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/CMakeFiles/FrameOfReference.dir
+/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/CMakeFiles/edit_cache.dir

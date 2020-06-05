@@ -1,10 +1,9 @@
 //
-// Created by alvaro on 21/9/19.
+// Created by alvaro on 2/10/19.
 //
 
-#ifndef FRAMEOFREFERENCE_THREAD_H
-#define FRAMEOFREFERENCE_THREAD_H
-
+#ifndef UNTITLED_THREAD_H
+#define UNTITLED_THREAD_H
 
 #include <thread>
 
@@ -13,7 +12,7 @@ private:
     std::thread thread;
 
 public:
-    Thread(){}
+    Thread() {}
 
     void start() {
         thread = std::thread(&Thread::run, this);
@@ -39,4 +38,4 @@ public:
     }
 };
 
-#endif //FRAMEOFREFERENCE_THREAD_H
+#endif //UNTITLED_THREAD_H

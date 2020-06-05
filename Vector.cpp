@@ -3,38 +3,29 @@
 //
 
 #include <iostream>
-#include <sstream>
-#include <cstring>
 #include <string>
-#include <vector>
 #include "Vector.h"
 #include <bits/stdc++.h>
+#include <vector>
 
 #define BYTE_SIZE 8
 #define FOUR_BYTES_SIZE (4*BYTE_SIZE)
-#define BUFFER_SIZE 200
 
 
-Vector::Vector(int N) {
-    this->numbers = new std::vector<uint32_t> (N);
-    this->N = N;
-    this->minimum = 0;
-    this->maxNumbersLengthInBits = 0;
+Vector::Vector(int N, const std::vector<uint32_t>& anotherVector):
+        numbers(const_cast<std::vector<uint32_t> &>(anotherVector)),
+        N(N), minimum(0), maxNumbersLengthInBits(0) {}
+
+Vector::Vector(const Vector &other): numbers(other.numbers){
+    this->minimum = other.minimum;
+    this->N = other.N;
+    this->maxNumbersLengthInBits = other.maxNumbersLengthInBits;
 }
 
-void Vector::saveNumbers(std::vector<uint32_t> *anotherVector) {
-    *numbers = *anotherVector;
-}
-
-void Vector::printContent() {
-    for (auto i : *numbers) {
-        std::cout << "Printing value: " << i  << std::endl;
-    }
-}
 
 uint32_t Vector::findMaximum() {
     uint32_t max = 0;
-    for (auto i: *numbers) {
+    for (auto i: numbers) {
         if (i > max) {
             max = i;
         }
@@ -43,23 +34,20 @@ uint32_t Vector::findMaximum() {
 }
 
 uint32_t Vector::findMinimum() {
-    uint32_t min = numbers->front();
-    for (auto i: *numbers) {
+    uint32_t min = numbers.front();
+    for (auto i: numbers) {
         if (i!=0 && min > i) {
             min = i;
         }
     }
 
     this->minimum = min;
-    std::cout << "Min: " << min << std::endl;
     return min;
 }
 
 uint8_t Vector::getBinaryLength(uint32_t number){
-    int n1[32];
     int i=0;
     for (i=0; number>0; i++){
-        n1[i]=number%2;
         number= number/2;
     }
     uint8_t binaryLength = i;
@@ -71,55 +59,43 @@ uint8_t Vector::getBinaryLength(uint32_t number){
 void Vector::substractMinimum() {
     this->minimum = this->findMinimum();
     for (int i=0; i < N; i++){
-        if (this->numbers->at(i))
-            this->numbers->at(i) -= this->minimum;
+        if (this->numbers.at(i))
+            this->numbers.at(i) -= this->minimum;
     }
     this->maxNumbersLengthInBits = this->getBinaryLength(this->findMaximum());
 }
 
-int Vector::addPaddingIfNecesary(char* auxiliarBuffer) {
+void Vector::addPaddingIfNecesary(std::vector<char>& auxiliarBuffer) {
     int totalBits = N * maxNumbersLengthInBits;
     bool aligned = (totalBits % BYTE_SIZE == 0);
 
     while (!aligned){
-        auxiliarBuffer[totalBits] = '0';
+        auxiliarBuffer.push_back('0');
         totalBits++;
-        std::cout << "Trying to align, actual value: " <<
-        totalBits << std::endl;
         aligned = (totalBits % BYTE_SIZE == 0);
     }
-
-    return totalBits;
 }
 
 
-void Vector::putNumbersTogetherAsString(char *auxiliarBuffer) {
-    int actualPosition = 0;
+
+void Vector::putNumbersTogetherAsString(std::vector<char>& auxiliarVector) {
     std::string actualString = "";
 
-    char actualStringChar[BUFFER_SIZE] = "";
     for (int i = 0; i < this->N; i++) {
-        memset(actualStringChar, '\0', sizeof(actualStringChar));
-        uint32_t num = this->numbers->at(i);
+        uint32_t num = (uint32_t) this->numbers.at(i);
 
         std::bitset<FOUR_BYTES_SIZE> b1(num);
         actualString = b1.to_string();
         int zeros = FOUR_BYTES_SIZE - this->maxNumbersLengthInBits;
 
         for (int i = 0; i < this->maxNumbersLengthInBits; i++) {
-            actualStringChar[i] = actualString[i + zeros];
-        }
-
-        std::cout << "Value in binarie: " << actualStringChar << std::endl;
-        for (int i = 0; i < this->maxNumbersLengthInBits; i++) {
-            auxiliarBuffer[actualPosition] = actualStringChar[i];
-            actualPosition++;
+            auxiliarVector.push_back(actualString[i + zeros]);
         }
     }
 }
 
 std::string Vector::getMinimumAsString() {
-    std::bitset<32> b1(this->minimum);
+    std::bitset<FOUR_BYTES_SIZE> b1(this->minimum);
     std::string min = b1.to_string();
     return min;
 }
@@ -131,11 +107,7 @@ std::string Vector::getMaxNumberLengthAsString() {
 }
 
 
-Vector::~Vector() {
-    numbers->clear();
-    std::vector<uint32_t>().swap(*numbers);
-    delete(this->numbers);
-}
+Vector::~Vector() {}
 
 
 

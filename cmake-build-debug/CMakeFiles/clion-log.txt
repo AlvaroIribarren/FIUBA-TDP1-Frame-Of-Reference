@@ -1,0 +1,4 @@
+/home/alvaro/Escritorio/clion-2019.2.1/bin/cmake/linux/bin/cmake -DCMAKE_BUILD_TYPE=Debug -DCMAKE_C_COMPILER=/usr/bin/gcc -G "CodeBlocks - Unix Makefiles" /home/alvaro/CLionProjects/FrameOfReference
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug

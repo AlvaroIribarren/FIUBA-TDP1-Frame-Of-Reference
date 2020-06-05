@@ -9,33 +9,32 @@
 #include "Vector.h"
 #include <vector>
 #include <string>
+#include <mutex>
 
 class Block {
 private:
-    Vector *vector;
+    Vector vector;
     uint8_t totalBlockBytes;
 
 public:
-    explicit Block(int N);
+    //Crea un bloque con la longitud del mismo y otro vector
+    //que ya tiene los numeros del archivo a asignar
+    Block(int N, std::vector<uint32_t>& anotherVector);
 
+    //Constructor por copia
     Block(const Block &other);
 
+    //Constructor por movimiento
     Block(Block&& other);
 
-    void saveNumbers(std::vector<uint32_t> *anotherVector);
-
+    //Resta el minimo a todos los elementos del bloque
     void substractMinimum();
 
-    void printContent();
+    //Arma el bloque como string con el minimo, la maxima longitud,
+    //y los numeros del bloque restados y lo devuelve.
+    std::string getContentInBuffer();
 
-    //En sending buffer devuelve la cadena a
-    //enviar y como valor de retorno su largo.
-    int getContentInBuffer(char* sendingBuffer);
-
-    //Auxiliar para getContentInBuffer. Este lo arma y lo devuelve.
-    int buildBuffer(char *sendingBuffer, char *auxiliarBuffer,
-                           std::string min, std::string length);
-
+    //Todo en el stack, nada para liberar
     virtual ~Block();
 };
 

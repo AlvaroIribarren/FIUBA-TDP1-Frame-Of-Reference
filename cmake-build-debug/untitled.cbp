@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="untitled"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FrameOfReference">
+				<Option output="/home/alvaro/CLionProjects/FrameOfReference/FrameOfReference" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alvaro/CLionProjects/FrameOfReference"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 FrameOfReference"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="FrameOfReference/fast">
+				<Option output="/home/alvaro/CLionProjects/FrameOfReference/FrameOfReference" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/alvaro/CLionProjects/FrameOfReference"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/7"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/7"/>
+					<Add directory="/usr/include/c++/7/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/7/include-fixed"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 FrameOfReference/fast"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/make -j4 -f &quot;/home/alvaro/CLionProjects/FrameOfReference/cmake-build-debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/Block.cpp">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/Block.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/File.cpp">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/File.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/FileProtected.cpp">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/FileProtected.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/ProcessorThread.cpp">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/ProcessorThread.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/SafeQueue.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/Thread.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/ThreadManager.cpp">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/ThreadManager.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/Vector.cpp">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/Vector.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/WriterThread.cpp">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/WriterThread.h">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/main.cpp">
+			<Option target="FrameOfReference"/>
+		</Unit>
+		<Unit filename="/home/alvaro/CLionProjects/FrameOfReference/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

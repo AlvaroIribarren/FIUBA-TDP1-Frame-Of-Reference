@@ -14,21 +14,35 @@ class File {
 private:
     std::ifstream readingFile;
     std::ofstream outputFile;
+
+    //Abre el archivo, privado para que solo sea usado por el constructor
+    void openFile(const std::string& openingFile);
+
+    //Abre el archivo de salida, privado para que sea usado por el constructor.
+    void openOutputStream(const std::string& outputStream);
+
 public:
-    File(std::string openingFile, std::string outputStream);
+    //Abre los streams con los nombres recibidos
+    File(const std::string& openingFile, const std::string& outputStream);
 
-    void openFile(std::string openingFile);
+    //Devuelve en el vector los numeros leidos del archivo, ademas devuelve
+    //la cantidad de numeros leidos.
+    int readNumbersFromFile(std::vector<uint32_t>& vector,
+            int N, int seekGParameter);
 
-    int readNumbersFromFile(std::vector<uint32_t>* vector , int N);
+    //Escribe el string recibido por parametro en el archivo de salida
+    void writeBlockToFile(std::string& finalBuffer);
 
-    void writeToFile(char *byteToBeWritten);
+    //Devuelve la longitud del archivo de entrada.
+    int getReadingFileLength();
 
-    void writeBlockToFile(Block *block);
-
-    void openOutputStream(std::string outputStream);
-
+    //Devuelve true si se llego al end of file del archivo de entrada.
     bool eof();
 
+    //Funcion auxiliar usada por writeBlockToFile para escribir en el archivo.
+    void writeByte(std::string &byte);
+
+    //Cierra ambos archivos.
     ~File();
 };
 
